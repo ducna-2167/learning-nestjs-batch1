@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="login-box">
+    <div class="left">
+      <h1>Sign up</h1>
+
+      <input type="text" name="name" placeholder="Name" />
+      <input type="text" name="username" placeholder="Username" />
+      <input type="text" name="email" placeholder="E-mail" />
+      <input type="password" name="password" placeholder="Password" />
+      <input type="password" name="password2" placeholder="Retype password" />
+      <input type="file" name="file" accept="image/png, image/jpeg, image/jpg" id="image-upload" onchange="uploadPicture()">
+
+      <input type="submit" name="signup_submit" value="Sign me up" onclick="registerUser()" />
+    </div>
+
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      <button class="social-signin google">
+        <a href="http://localhost:3000/auth/google" style="text-decoration: none;color: white;">Log in with Google+</a>
+      </button>
+    </div>
+    <div class="or">OR</div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
