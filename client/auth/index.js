@@ -1,12 +1,3 @@
-//  <input type="text" name="name" placeholder="Name" />
-//  <input type="text" name="username" placeholder="Username" />
-//  <input type="text" name="email" placeholder="E-mail" />
-//  <input type="password" name="password" placeholder="Password" />
-//  <input type="password" name="password2" placeholder="Retype password" />
-//  <input type="password" name="avatar" placeholder="Avatar" />
-
-const e = require('express');
-
 const data = {};
 
 function uploadPicture() {
