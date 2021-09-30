@@ -11,18 +11,18 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [`.env.stage.${process.env.STAGE}`],
+      envFilePath: [`.env.stage.dev`],
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client'),
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.DATABASE_HOST,
       port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'task-management',
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_DB,
       autoLoadEntities: true,
       synchronize: true,
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
