@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PhotoUploadModule } from './photo-upload/photo-upload.module';
 import { ConfigModule } from '@nestjs/config';
+import { ArticlesModule } from './articles/articles.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     AuthModule,
     PhotoUploadModule,
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

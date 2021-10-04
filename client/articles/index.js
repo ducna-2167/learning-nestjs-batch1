@@ -51,10 +51,8 @@ function registerUser() {
 function loginUser() {
   let username = document.getElementsByName('username')[0].value;
   let password = document.getElementsByName('password')[0].value;
-  let data = {
-    username: username,
-    password: password,
-  };
+  data.username = username;
+  data.password = password;
   console.log(data);
 
   fetch('http://localhost:3000/auth/signin', {
@@ -75,18 +73,28 @@ function createArticle() {
   let title = document.getElementsByName('title')[0].value;
   let content = document.getElementsByName('content')[0].value;
 
-  data = {
-    title,
-    content,
-  };
-
+  data.title = title;
+  data.content = content;
+  console.log(data);
   fetch('http://localhost:3000/articles', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.parse(data),
-  })
-    .then((res) => console.log(res))
-    .then((data) => console.log(data));
+    body: JSON.stringify(data),
+  }).then((res) => {
+    switch (res.status) {
+      case 409:
+        alert('user or email is already used');
+        break;
+      case 201:
+        res.json().then((resdata) => {
+          window.location.href = `http://localhost:3000/articles/${resdata.id}`;
+        });
+        break;
+      default:
+        alert('there is some error');
+        break;
+    }
+  });
 }

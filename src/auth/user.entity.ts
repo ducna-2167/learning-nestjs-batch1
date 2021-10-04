@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Articles } from 'src/articles/articles.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 // Đăng ký với Google hoặc form
 // Tên: tối đa 100 ký tự
@@ -26,4 +27,7 @@ export class User {
 
   @Column({ nullable: true })
   avatar: string;
+
+  @OneToMany((type) => Articles, (article) => article.user)
+  articles: Articles[];
 }
