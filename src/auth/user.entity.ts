@@ -28,6 +28,6 @@ export class User {
   @Column({ nullable: true })
   avatar: string;
 
-  @OneToMany((type) => Articles, (article) => article.user)
+  @OneToMany((_type) => Articles, (article) => article.user)
   articles: Articles[];
 }

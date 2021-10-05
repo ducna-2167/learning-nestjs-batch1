@@ -15,6 +15,6 @@ export class Articles {
   @Column()
   content: string;
 
-  @ManyToOne((type) => User, (user) => user.id, { eager: false })
+  @ManyToOne((_type) => User, (user) => user.id, { eager: false })
   user: User;
 }
